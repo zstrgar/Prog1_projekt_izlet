@@ -11,19 +11,22 @@ filename = 'spletna_stran.html'
 #ime CSV datoteke
 csv = 'podatki.csv'
 
-### Pridobitev podatkov
+# Pridobitev podatkov
 def download_url_to_string(url):
-    '''This function takes a URL as argument and tries to download it
-    using requests. Upon success, it returns the page contents as string.'''
-    try:      
+    ''' Funkcija kot argument prejme url in z uporabo ukaza 
+    requests poskusi prenesti vsebino strani kot niz.'''
+    try:
         r = requests.get(url)
-        print("download successful")
+        print("Shranjeno!")
     except requests.exceptions.ConnectionError:
         print("Stran ne obstaja")
         return None
     return r.text
 
+
 def save_page():
+    ''' Pomožna funkcija, ki shrani url stran
+    kot niz v datoteko v neki mapi.'''
     besedilo = download_url_to_string(url)
     os.makedirs(directory, exist_ok=True)
     path = os.path.join(directory, filename)
@@ -31,4 +34,21 @@ def save_page():
         datoteka.write(besedilo)        
     return None
 
-####Obdelava podatkov
+# Obdelava podatkov
+def read_file_to_string(directory, filename):
+    ''' Vrne vsebino strani iz datoteke, kjer je shranjena, kot niz. '''
+    path = os.path.join(directory, filename)
+    with open(path, 'r', encoding='utf-8') as file_in:
+        return file_in.read()
+    return None
+
+
+vzorec = re.compile(
+    r'<td colspan="2"><a href="(?P<Povezava>.+?)"><b>(?P<Ime>.+?)&nbsp;.+?',
+    flags = re.DOTALL
+)
+
+
+def page_to_izleti(page):
+    izleti = re.findall(vzorec, page)
+    return izleti
