@@ -56,10 +56,11 @@ def page_to_izleti(page):
 
 vzorec_izleta = re.compile(
     r'<tr><td><b>Gorovje:</b> <a class="moder" href=.*?>(?P<Gorovje>.*?)</a></td></tr>.*?'
-    r'</b> (?P<Nadmorska_visina>\d{1,4})&nbsp;m</td></tr>*?'
-    r'<tr><td><b>Priljubljenost:</b> (?P<Priljubljenost>\d{1,3})%.*?'
-    r'(?P<Mesto_priljubljenosti>.\d{1,4})\.mesto.</td></tr>.*?',
-    #r'poti:</b> <a class="moder" href="#poti">(?P<Stevilo_poti>\d*?)</a></td></tr>.*?'
-    #r'<tr><td><b>Vrsta:</b> (?P<vrh>.?*)</td></tr>.?*',
+    r'</b> (?P<Nadmorska_visina>\d{1,4})&nbsp;m</td></tr>.*?'
+    r'<tr><td><b>Vrsta:</b> (?P<vrsta>.*?)</td></tr>.*?'
+    r'<tr><td><b>Priljubljenost:</b> (?P<Priljubljenost>\d{1,3}%).*?'
+    r'\((?P<mesto>\d{3}\. mesto)\)</td></tr>.*?'
+    #r'.(?P<Mesto_priljubljenosti>\d{1,4}\.mesto).</td></tr>.*?',
+    r'href="#poti">(?P<St_poti>\d)</a></td></tr>.*?',
     flags=re.DOTALL
 )
