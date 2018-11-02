@@ -59,15 +59,9 @@ vzorec_izletov = re.compile(
 )
 
 
-def page_to_izleti(stran):
-    '''Vrne seznam naborov (url izleta, id izleta, ime izleta) iz strani.'''
-    izleti = re.findall(vzorec_izletov, stran)
-    return izleti
-
-
 vzorec_izleta = re.compile(
+    r'<title>(?P<Ime>.+?)</title>.*?'
     r'gorast\((?P<id_izleta>\d+?)\);.*?'
-    r'<title>(?P<Ime_izleta>.+?)</title>\s.*?'
     r'<tr><td><b>Gorovje:</b> <a class="moder" href=.*?>(?P<Gorovje>.*?)</a></td></tr>.*?'
     r'</b> (?P<Visina>\d{1,4})&nbsp;m</td></tr>.*?'
     r'<tr><td><b>Vrsta:</b> (?P<Vrsta>.*?)</td></tr>.*?'
@@ -77,6 +71,12 @@ vzorec_izleta = re.compile(
     r'<tr><td colspan="2"><p align="justify">(?P<Opis>.*?)</p></td></tr>.*?',
     flags=re.DOTALL
 )
+
+
+def page_to_izleti(stran):
+    '''Vrne seznam naborov (url izleta, id izleta, ime izleta) iz strani.'''
+    izleti = re.findall(vzorec_izletov, stran)
+    return izleti
 
 
 def podatki_izletov(izleti):
@@ -89,3 +89,26 @@ def podatki_izletov(izleti):
         niz = read_file_to_string(ime_mape, stran_izleta)
         podatki_izletov.append(re.findall(vzorec_izleta, niz)[0])
     return podatki_izletov
+
+
+#TODO slovar teh poadtkov, pa pogledat, če se da da se te strani ne shranjujejo... preberi kodo od prof.
+
+
+def write_csv(fieldnames, rows, directory, filename):
+    '''Write a CSV file to directory/filename. The fieldnames must be a list of
+    strings, the rows a list of dictionaries each mapping a fieldname to a
+    cell-value.'''
+    os.makedirs(directory, exist_ok=True)
+    path = os.path.join(directory, filename)
+    with open(path, 'w') as csv_file:
+        writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
+        writer.writeheader()
+        for row in rows:
+            writer.writerow(row)
+    return None
+
+
+def write_cat_ads_to_csv(izleti):
+    ime_stolpca = izleti[0].keys()
+    write_csv(ime_stolpca, izleti, ime_mape, csv)
+    return None
