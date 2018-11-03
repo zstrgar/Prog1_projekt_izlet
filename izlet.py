@@ -12,14 +12,10 @@ ime_datoteke = 'spletna_stran_izletov.html'
 csv_izletov = 'podatki.csv'
 
 
-def pripravi_imenik(ime_datoteke):
-    '''Če še ne obstaja, pripravi prazen imenik za dano datoteko.'''
-    imenik = os.path.dirname(ime_datoteke)
-    if imenik:
-        os.makedirs(imenik, exist_ok=True)
-
 # Pridobitev podatkov
-def download_url_to_string(url):
+
+
+def prenesi_url(url):
     ''' Funkcija kot argument prejme url in z uporabo ukaza 
     requests poskusi prenesti vsebino strani kot niz.'''
     try:
@@ -32,28 +28,30 @@ def download_url_to_string(url):
     return r.text
 
 
-def save_page(url, ime_mape, ime_datoteke):
-    ''' Pomožna funkcija, ki shrani url stran v dani 
+def shrani_stran(url, ime_mape, ime_datoteke):
+    ''' Pomožna funkcija, ki shrani prenešen url v dani 
     mapi kot niz v datoteko.'''
-    besedilo = download_url_to_string(url)
+    besedilo = prenesi_url(url)
     os.makedirs(ime_mape, exist_ok=True)
-    path = os.path.join(ime_mape, ime_datoteke)
-    with open(path, 'w', encoding='utf-8') as datoteka:
+    pot = os.path.join(ime_mape, ime_datoteke)
+    with open(pot, 'w', encoding='utf-8') as datoteka:
         datoteka.write(besedilo)       
     return None
 
 
 # Obdelava podatkov
-def read_file_to_string(ime_mape, ime_datoteke):
+
+
+def pretvori_v_niz(ime_mape, ime_datoteke):
     ''' Vrne vsebino strani iz datoteke, kjer je shranjena, kot niz. '''
-    path = os.path.join(ime_mape, ime_datoteke)
-    with open(path, 'r', encoding='utf-8') as file_in:
-        return file_in.read()
+    pot = os.path.join(ime_mape, ime_datoteke)
+    with open(pot, 'r', encoding='utf-8') as datoteka:
+        return datoteka.read()
     return None
 
 
 vzorec_izletov = re.compile(
-    r'<td colspan="2"><a href="(?P<Povezava>gora\.asp\?gorovjeid=\d+?&id=(?P<id_izleta>\d+?))">'
+    r'<td colspan="2"><a href="(?P<Povezava>gora\.asp\?gorovjeid=\d+?&id=(?P<Id_izleta>\d+?))">'
     r'<b>(?P<Ime>.+?)&nbsp;.+?',
     flags=re.DOTALL
 )
@@ -61,7 +59,7 @@ vzorec_izletov = re.compile(
 
 vzorec_izleta = re.compile(
     r'<title>(?P<Ime>.+?)</title>.*?'
-    r'gorast\((?P<id_izleta>\d+?)\);.*?'
+    r'gorast\((?P<Id_izleta>\d+?)\);.*?'
     r'<tr><td><b>Gorovje:</b> <a class="moder" href=.*?>(?P<Gorovje>.*?)</a></td></tr>.*?'
     r'</b> (?P<Visina>\d{1,4})&nbsp;m</td></tr>.*?'
     r'<tr><td><b>Vrsta:</b> (?P<Vrsta>.*?)</td></tr>.*?'
@@ -73,42 +71,44 @@ vzorec_izleta = re.compile(
 )
 
 
-def page_to_izleti(stran):
+def seznam_izletov():
     '''Vrne seznam naborov (url izleta, id izleta, ime izleta) iz strani.'''
-    izleti = re.findall(vzorec_izletov, stran)
-    return izleti
+    sez_izleti = re.findall(vzorec_izletov, pretvori_v_niz(ime_mape, ime_datoteke))
+    return sez_izleti
+
+
+izleti = seznam_izletov()
 
 
 def podatki_izletov(izleti):
-    '''Sprejme seznam parov izletov (url, id), in naloži vsebino strani url kot niz'''
     podatki_izletov = []
     for i in range(0, 3):
         url_izleta = 'http://www.hribi.net/' + izleti[i][0]
         stran_izleta = 'stran_izlet_{}.html'.format(izleti[i][1])
-        stran = save_page(url_izleta, ime_mape, stran_izleta)
-        niz = read_file_to_string(ime_mape, stran_izleta)
-        podatki_izletov.append(re.findall(vzorec_izleta, niz)[0])
+        stran = shrani_stran(url_izleta, ime_mape, stran_izleta)
+        niz = pretvori_v_niz(ime_mape, stran_izleta)
+        izlet = vzorec_izleta.search(niz)
+        podatki_izletov.append(izlet.groupdict())
     return podatki_izletov
 
+podatki_izletov = podatki_izletov(izleti)
 
-#TODO slovar teh poadtkov, pa pogledat, če se da da se te strani ne shranjujejo... preberi kodo od prof.
 
-
-def write_csv(fieldnames, rows, directory, filename):
-    '''Write a CSV file to directory/filename. The fieldnames must be a list of
-    strings, the rows a list of dictionaries each mapping a fieldname to a
-    cell-value.'''
-    os.makedirs(directory, exist_ok=True)
-    path = os.path.join(directory, filename)
-    with open(path, 'w') as csv_file:
-        writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
+def zapisi_csv(imena_stolpcev, vrstice, ime_mape, ime_datoteke):
+    '''Zapiše datoteko v CSV file v ime_mape/ime_datoteke. 
+    Imena_stolpcev je seznam nizov, vrstice seznam slovarjev, kjer
+    se vsak ključ (ime_stolpca) ujema z neko vrednostjo'''
+    os.makedirs(ime_mape, exist_ok=True)
+    pot = os.path.join(ime_mape, ime_datoteke)
+    with open(pot, 'w') as csv_dat:
+        writer = csv.DictWriter(csv_dat, fieldnames=imena_stolpcev)
         writer.writeheader()
-        for row in rows:
+        for row in vrstice:
             writer.writerow(row)
     return None
 
 
-def write_cat_ads_to_csv(izleti):
-    ime_stolpca = izleti[0].keys()
-    write_csv(ime_stolpca, izleti, ime_mape, csv)
+def zapisi_izlete_v_csv(seznam_podatkov):
+    imena_stolpcev = seznam_podatkov[0].keys()
+    zapisi_csv(imena_stolpcev, seznam_podatkov, ime_mape, csv_izletov)
     return None
