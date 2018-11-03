@@ -10,7 +10,7 @@ ime_mape = 'Prog1_projekt_izlet/podatki_izlet'
 #ime datoteke, kjer bomo shranili spletno stran
 ime_datoteke = 'spletna_stran_izletov.html'
 #ime CSV datoteke
-csv_izletov = 'podatki.csv'
+csv_izletov = 'podatki_izletov.csv'
 
 
 # Pridobitev podatkov
@@ -83,7 +83,7 @@ def seznam_izletov():
 
 def podatki_izletov(izleti):
     podatki_izletov = []
-    for i in range(0, 3):
+    for i in range(len(izleti)):
         url_izleta = 'http://www.hribi.net/' + izleti[i][0]
         stran_izleta = 'stran_izlet_{}.html'.format(izleti[i][1])
         stran = shrani_stran(url_izleta, ime_mape, stran_izleta)
@@ -96,23 +96,16 @@ def podatki_izletov(izleti):
 #zapis podatkov v CSV
 
 
-def zapisi_csv(imena_stolpcev, vrstice, ime_mape, ime_datoteke):
-    '''Zapiše datoteko v CSV file v ime_mape/ime_datoteke.
-    Imena_stolpcev je seznam nizov, vrstice seznam slovarjev, kjer
-    se vsak ključ (ime_stolpca) ujema z neko vrednostjo.'''
+def zapisi_podatke_v_csv(seznam_podatkov, ime_mape, ime_datoteke):
+    '''Zapiše dani seznam slovarjev podatkov v 
+    ime_mape/ime_datoteke v csv datoteko.'''
+    imena_stolpcev = seznam_podatkov[0].keys()
+    vrstice = seznam_podatkov
     os.makedirs(ime_mape, exist_ok=True)
     pot = os.path.join(ime_mape, ime_datoteke)
-    with open(pot, 'w') as csv_dat:
+    with open(pot, 'w', encoding= 'utf-8') as csv_dat:
         writer = csv.DictWriter(csv_dat, fieldnames=imena_stolpcev)
         writer.writeheader()
-        for row in vrstice:
-            writer.writerow(row)
+        for vrstica in vrstice:
+            writer.writerow(vrstica)
     return None
-
-
-def zapisi_izlete_v_csv(seznam_podatkov):
-    '''Zapiše seznam slovarjev v csv datoteko.'''
-    imena_stolpcev = seznam_podatkov[0].keys()
-    zapisi_csv(imena_stolpcev, seznam_podatkov, ime_mape, csv_izletov)
-    return None
-
