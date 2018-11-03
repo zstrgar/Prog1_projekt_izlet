@@ -3,6 +3,7 @@ import re
 import os
 import csv
 
+
 url_izletov = 'http://www.hribi.net/goreiskanjerezultat.asp?drzavaid=1&gorovjeid=&goraime=&VisinaMIN=&VisinaMAX=&CasMIN=&CasMAX=&izhodisce=&izhodisceMIN=&izhodisceMAX=&VisinskaRazlikaMIN=&VisinskaRazlikaMAX=&zahtevnostid=&zahtevnostSmucanjeid=&IzhodisceMinOddaljenost=&IzhodisceMAXOddaljenost=&GoraMinOddaljenost=&GoraMaxOddaljenost=&mojaSirina=0&mojaDolzina=0'
 #mapa s podatki
 ime_mape = 'Prog1_projekt_izlet/podatki_izlet'
@@ -29,7 +30,7 @@ def prenesi_url(url):
 
 
 def shrani_stran(url, ime_mape, ime_datoteke):
-    ''' Pomožna funkcija, ki shrani prenešen url v dani 
+    ''' Pomožna funkcija, ki shrani prenešen url v dani
     mapi kot niz v datoteko.'''
     besedilo = prenesi_url(url)
     os.makedirs(ime_mape, exist_ok=True)
@@ -77,7 +78,7 @@ def seznam_izletov():
     return sez_izleti
 
 
-izleti = seznam_izletov()
+#izleti = seznam_izletov(), podatki_izletov = podatki_izletov(izleti)
 
 
 def podatki_izletov(izleti):
@@ -91,13 +92,14 @@ def podatki_izletov(izleti):
         podatki_izletov.append(izlet.groupdict())
     return podatki_izletov
 
-podatki_izletov = podatki_izletov(izleti)
+
+#zapis podatkov v CSV
 
 
 def zapisi_csv(imena_stolpcev, vrstice, ime_mape, ime_datoteke):
-    '''Zapiše datoteko v CSV file v ime_mape/ime_datoteke. 
+    '''Zapiše datoteko v CSV file v ime_mape/ime_datoteke.
     Imena_stolpcev je seznam nizov, vrstice seznam slovarjev, kjer
-    se vsak ključ (ime_stolpca) ujema z neko vrednostjo'''
+    se vsak ključ (ime_stolpca) ujema z neko vrednostjo.'''
     os.makedirs(ime_mape, exist_ok=True)
     pot = os.path.join(ime_mape, ime_datoteke)
     with open(pot, 'w') as csv_dat:
@@ -109,6 +111,8 @@ def zapisi_csv(imena_stolpcev, vrstice, ime_mape, ime_datoteke):
 
 
 def zapisi_izlete_v_csv(seznam_podatkov):
+    '''Zapiše seznam slovarjev v csv datoteko.'''
     imena_stolpcev = seznam_podatkov[0].keys()
     zapisi_csv(imena_stolpcev, seznam_podatkov, ime_mape, csv_izletov)
     return None
+
