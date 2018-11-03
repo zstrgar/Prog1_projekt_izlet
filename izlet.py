@@ -2,6 +2,7 @@ import requests
 import re
 import os
 import csv
+import time
 
 
 url_izletov = 'http://www.hribi.net/goreiskanjerezultat.asp?drzavaid=1&gorovjeid=&goraime=&VisinaMIN=&VisinaMAX=&CasMIN=&CasMAX=&izhodisce=&izhodisceMIN=&izhodisceMAX=&VisinskaRazlikaMIN=&VisinskaRazlikaMAX=&zahtevnostid=&zahtevnostSmucanjeid=&IzhodisceMinOddaljenost=&IzhodisceMAXOddaljenost=&GoraMinOddaljenost=&GoraMaxOddaljenost=&mojaSirina=0&mojaDolzina=0'
@@ -52,22 +53,22 @@ def pretvori_v_niz(ime_mape, ime_datoteke):
 
 
 vzorec_izletov = re.compile(
-    r'<td colspan="2"><a href="(?P<Povezava>gora\.asp\?gorovjeid=\d+?&id=(?P<Id_izleta>\d+?))">'
-    r'<b>(?P<Ime>.+?)&nbsp;.+?',
+    r'<td colspan="2"><a href="(gora\.asp\?gorovjeid=\d+?&id=(\d+?))">'
+    r'<b>(.+?)&nbsp;.+?',
     flags=re.DOTALL
 )
 
 
 vzorec_izleta = re.compile(
-    r'<title>(?P<Ime>.+?)</title>.*?'
-    r'gorast\((?P<Id_izleta>\d+?)\);.*?'
-    r'<tr><td><b>Gorovje:</b> <a class="moder" href=.*?>(?P<Gorovje>.*?)</a></td></tr>.*?'
-    r'</b> (?P<Visina>\d{1,4})&nbsp;m</td></tr>.*?'
-    r'<tr><td><b>Vrsta:</b> (?P<Vrsta>.*?)</td></tr>.*?'
-    r'<tr><td><b>Priljubljenost:</b> (?P<Priljubljenost>\d{1,3}%).*?'
-    r'\((?P<Mesto_priljubljenosti>\d{1,4}\. mesto)\)</td></tr>.*?'
-    r'href="#poti">(?P<Stevilo_poti>\d)</a></td></tr>.*?'
-    r'<tr><td colspan="2"><p align="justify">(?P<Opis>.*?)</p></td></tr>.*?',
+    r'<title>(?P<ime>.+?)</title>.*?'
+    r'gorast\((?P<id>\d+?)\);.*?'
+    r'<tr><td><b>Gorovje:</b> <a class="moder" href=.*?>(?P<gorovje>.*?)</a></td></tr>.*?'
+    r'</b> (?P<visina>\d{1,4})&nbsp;m</td></tr>.*?'
+    r'<tr><td><b>Vrsta:</b> (?P<vrsta>.*?)</td></tr>.*?'
+    r'<tr><td><b>Priljubljenost:</b> (?P<priljubljenost>\d+?)%.*?'
+    r'\((?P<mesto_priljubljenosti>\d+?)\. mesto\)</td></tr>.*?'
+    r'href="#poti">(?P<stevilo_poti>\d+?)</a></td></tr>.*?'
+    r'<tr><td colspan="2"><p align="justify">(?P<opis>.*?)</p></td></tr>.*?',
     flags=re.DOTALL
 )
 
@@ -76,7 +77,7 @@ def seznam_izletov():
     '''Vrne seznam naborov (url izleta, id izleta, ime izleta) iz strani.'''
     sez_izleti = re.findall(vzorec_izletov, pretvori_v_niz(ime_mape, ime_datoteke))
     return sez_izleti
-
+ 
 
 #izleti = seznam_izletov(), podatki_izletov = podatki_izletov(izleti)
 
@@ -87,6 +88,7 @@ def podatki_izletov(izleti):
         url_izleta = 'http://www.hribi.net/' + izleti[i][0]
         stran_izleta = 'stran_izlet_{}.html'.format(izleti[i][1])
         stran = shrani_stran(url_izleta, ime_mape, stran_izleta)
+        time.sleep(1)
         niz = pretvori_v_niz(ime_mape, stran_izleta)
         izlet = vzorec_izleta.search(niz)
         podatki_izletov.append(izlet.groupdict())
