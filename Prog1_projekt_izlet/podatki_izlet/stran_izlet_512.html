@@ -1,0 +1,929 @@
+
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>Rogla</title>
+<meta name="description" content="Natančen opis gore Rogla in vseh pristopov na Rogla. Rogla je vrh sredi istoimenskega smučišča. Vrh je gozdnat z majhno jaso na kater" />
+<meta name="keywords" content="gore, hribi, planine, panorame, spletne kamere, gps sledi, živali, cvetje, gorništvo, zemljevid" />
+<meta name="author" content="Rok Lukan" />
+<meta name="verify-v1" content="sXljD5GV20+EU7Ux2CdmrEDx3B65WlsKqpNRdgePdFs=" />
+
+<link rel="SHORTCUT ICON" href="/slike/favico.ico" />
+
+<link rel="stylesheet" type="text/css" href="/sistem/slogi4.css" />
+<link rel="alternate" type="application/rss+xml" title="Trenutne razmere - Forum" href="/rss1.xml" />
+<link rel="alternate" type="application/rss+xml" title="Novi opisi gora, izletov" href="/rss4.xml" />
+<link rel="alternate" type="application/rss+xml" title="Novice" href="/rss2.xml" />
+<link rel="alternate" type="application/rss+xml" title="Video posnetki" href="/rss9.xml" />
+<link rel="alternate" type="application/rss+xml" title="Komentirani izleti" href="/rss3.xml" />
+<link rel="alternate" type="application/rss+xml" title="Prireditve" href="/rss5.xml" />
+<link rel="alternate" type="application/rss+xml" title="Panorame" href="/rss6.xml" />
+<link rel="alternate" type="application/rss+xml" title="GPS sledi" href="/rss7.xml" />
+<link rel="alternate" type="application/rss+xml" title="Spletne kamere" href="/rss8.xml" />
+<link rel="alternate" type="application/rss+xml" title="Mali oglasi" href="/rss10.xml" />
+<link rel="alternate" type="application/rss+xml" title="Alpinistični vzponi" href="/rss20.xml" />
+
+<script type="text/javascript">
+
+
+_iprom_consent=false;
+
+
+function piskotki_vec()
+{
+    document.getElementById('cookie_3').innerHTML='<div class="fc3"><'+'ifr'+'ame name="framed" width="500" height="300" border="0" frameborder="0"  overflow-y="scroll" overflow-x="hidden" allowtransparency="true" hspace="0" vspace="0" marginheight="0" marginwidth="0" src="/piskotki_podrobnosti.asp" ><'+'/ifr'+'ame></div>';
+}
+
+function piskotki_obvestilo()
+{
+  var xmlpiskot;
+  try
+    {
+    xmlpiskot=new XMLHttpRequest();
+    }
+  catch (e)
+    {
+    try
+      {
+      xmlpiskot=new ActiveXObject("Msxml2.XMLHTTP");
+      }
+    catch (e)
+      {
+      try
+        {
+        xmlpiskot=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+      catch (e)
+        {
+        return false;
+        }
+      }
+    }
+    xmlpiskot.onreadystatechange=function()
+      {
+      if(xmlpiskot.readyState==4)
+        {
+            document.getElementById("cookie_1").innerHTML=xmlpiskot.responseText;
+            var $cookie_1 = $('#cookie_1');
+            var iFixedDivHeight = $cookie_1.outerHeight({ 'margin': true });
+            $(window).bind('scroll', function(e) {
+            var iWindowHeight = $(window).height();
+            var iScrollPosition = $(window).scrollTop(); // or document.body.scrollTop
+            $cookie_1.css({ 'top': iWindowHeight + iScrollPosition - iFixedDivHeight });
+        });
+        }
+      }
+    xmlpiskot.open("GET", "/ajax_piskot_obvestilo.asp", true);
+    xmlpiskot.send(null);}
+    
+    
+    function piskotki_strinjanje(id)
+   {
+  var xmlpiskot1;
+  try
+    {
+    xmlpiskot1=new XMLHttpRequest();
+    }
+  catch (e)
+    {
+    try
+      {
+      xmlpiskot1=new ActiveXObject("Msxml2.XMLHTTP");
+      }
+    catch (e)
+      {
+      try
+        {
+        xmlpiskot1=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+      catch (e)
+        {
+        return false;
+        }
+      }
+    }
+    xmlpiskot1.onreadystatechange=function()
+      {
+      if(xmlpiskot1.readyState==4)
+        {
+            document.getElementById("cookie_1").innerHTML="";
+        }
+      }
+    xmlpiskot1.open("GET", "/ajax_piskot_strinjanje.asp?id="+id, true);
+    xmlpiskot1.send(null);}
+
+
+    function zasebnost_strinjanje(id)
+    {
+        var xmlzasebnost1;
+        try
+        {
+            xmlzasebnost1=new XMLHttpRequest();
+        }
+        catch (e)
+        {
+            try
+            {
+                xmlzasebnost1=new ActiveXObject("Msxml2.XMLHTTP");
+            }
+            catch (e)
+            {
+                try
+                {
+                    xmlzasebnost1=new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                catch (e)
+                {
+                    return false;
+                }
+            }
+        }
+        xmlzasebnost1.onreadystatechange=function()
+        {
+            if(xmlzasebnost1.readyState==4)
+            {
+            }
+        }
+        xmlpiskot1.open("GET", "/ajax_zasebnost_strinjanje.asp?id="+id, true);
+        xmlpiskot1.send(null);}
+
+
+function nalozioglase()
+{
+
+
+document.getElementById('oglasb').innerHTML='<'+'if'+'rame'+' id'+'="framed1'+'" na'+'me="fra'+'med" allow'+'transpar'+'ency='+'"true" widt'+'h="120" heig'+'ht="27'+'0" bord'+'er="0" frameb'+'order="0" scro'+'lling="no" al'+'lowtransp'+'arency="true" hs'+'pace="0" vs'+'pace="0" marg'+'inheight="'+'0" margi'+'nwidth="0" sr'+'c="/Nal'+'oziOgla'+'se.'+'asp?'+'id'+'=2" ><'+'/i'+'fra'+'m'+'e>';
+
+
+}
+
+
+
+</script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-427512-40', {'storage': 'none', 'clientId': '3139332E3133382E35372E313931707974686F6E2D72657175657374732F322E31392E31'});
+  ga('send', 'pageview', {'anonymizeIp': true});
+</script>
+
+
+
+
+
+<script async='async' src='https://www.googletagservices.com/tag/js/gpt.js'></script>
+<script>
+  var googletag = googletag || {};
+  googletag.cmd = googletag.cmd || [];
+</script>
+
+<script>
+  googletag.cmd.push(function() {
+    googletag.defineSlot('/1068801/365plus', [728, 90], 'div-gpt-ad-1470952521869-0').addService(googletag.pubads());
+    googletag.pubads().enableSingleRequest();
+    googletag.enableServices();
+  });
+</script>
+
+
+</head>
+
+<body onload="nalozioglase();">
+
+
+<script type="text/javascript">
+function ajaxc()
+  {
+  var xmlHttpcl;
+  try
+    {
+    xmlHttpcl=new XMLHttpRequest();
+    }
+  catch (e)
+    {
+    try
+      {
+      xmlHttpcl=new ActiveXObject("Msxml2.XMLHTTP");
+      }
+    catch (e)
+      {
+      try
+        {
+        xmlHttpcl=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+      catch (e)
+        {
+        return false;
+        }
+      }
+    }
+    xmlHttpcl.onreadystatechange=function()
+      {
+      }
+    xmlHttpcl.open("GET", "/ajaxc.asp", true);
+    xmlHttpcl.send(null);
+  }
+  ajaxc();
+</script>
+
+
+<script type="text/javascript">
+function locljivost(locljivost)
+  {
+  var xmlHttp;
+  try
+    {
+    xmlHttp=new XMLHttpRequest();
+    }
+  catch (e)
+    {
+    try
+      {
+      xmlHttp=new ActiveXObject("Msxml2.XMLHTTP");
+      }
+    catch (e)
+      {
+      try
+        {
+        xmlHttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+      catch (e)
+        {
+        return false;
+        }
+      }
+    }
+    xmlHttp.onreadystatechange=function()
+      {
+
+      }
+    xmlHttp.open("GET", "/sistem/locljivost.asp?locljivost=" + locljivost, true);
+    xmlHttp.send(null);
+  }
+</script>
+
+<script>
+var w = document.body.clientWidth;
+var x = 0
+if(x != w){
+    locljivost(w);
+}
+
+</script>
+
+
+
+
+<div id="cookie_1"></div>
+<script>
+piskotki_obvestilo();
+</script>
+
+
+
+<!-- oglas A  -->
+    <div class="OglasA"></div>
+<!-- oglas A konec-->
+<div id="container">
+	<div id="okvir">
+<div id="glava">
+<table cellpadding="0" cellspacing="0" width="100%">
+
+<form name="iskalnik" method="get" action="/iskalnik.asp">
+<input type="hidden" name="location" value="hribi.net" />
+<tr><td><a href="/"><img width="188" height="80" border="0" src="/slike/logo.jpg" alt="Hribi.net"></a></td><td align="left"><table height="20"><tr><td></td></tr></table>
+<script type="text/javascript">
+function iskanjehribi()
+{
+document.getElementById("iskanjeslo").className="iskanjeslo2";
+document.getElementById("iskanjehribi").className ="iskanjehribi";
+document.iskalnik.location.value="hribi.net";
+}
+function iskanjeslo()
+{
+document.getElementById("iskanjeslo").className="iskanjeslo";
+document.getElementById("iskanjehribi").className ="iskanjehribi2";
+document.iskalnik.location.value="";
+}
+</script>
+                <table width="205" cellpadding="0" cellspacing="0"><tr><td align="left" onclick="iskanjehribi();" id="iskanjehribi" class="iskanjehribi">Hribi.net</td><td width="2"></td><td align="left" onclick="iskanjeslo();" id="iskanjeslo" class="iskanjeslo2">Slovenski&nbsp;splet</td><td width="100%"></td></tr>
+                <tr><td colspan="5"><input class="iskanje1" type="text" id="q" name="q" /><input class="gumbiskanje" type="submit" value="Najdi" /></td></tr></table>
+                </form>
+            </td><td width="100%" align="right" valign="bottom">
+            <table cellpadding="0" cellspacing="0"><tr>
+            
+                <td class="pov1x"></td><td class="pov2x"><a class="pov2" href="/registracija.asp"><b>Registracija</b></a></td><td class="pov3x"></td>
+            
+            <td class="pov1x"></td><td class="pov2x"><a class="pov2" href="/navodila.asp"><b>Navodila</b></a></td><td class="pov3x"></td>
+            
+
+
+            <script type="text/javascript">
+function avtoprijavax()
+{
+if(document.prijava.avtoprijava.value=="on")
+{
+    document.getElementById("avtoprijava11").className="avtoprijava2";
+    document.prijava.avtoprijava.value="";
+}
+else
+{
+    document.prijava.avtoprijava.value="on";
+    document.getElementById("avtoprijava11").className ="avtoprijava";
+}
+}
+</script>
+
+
+
+             <form name="prijava" action="/prijava.asp" method="post">
+            <td><span class="anketaodgovor">uporabnik:</span></td><td><input name="UporabniskoIme" type="text" class="prijava1"></td><td>&nbsp;</td><td><span class="anketaodgovor">geslo:</span></td><td><input name="Geslo" type="password" class="prijava1"></td><td>&nbsp;</td><td><input type="submit" value="Prijava" class="glasuj"></td><td>&nbsp;</td><td><input name="avtoprijava" type="hidden"></td><td><span class="avtoprijava2" id="avtoprijava11" onclick="avtoprijavax();">avtoprijava&nbsp;</span></td>
+            </form>
+            
+             </tr></table>
+            </td></tr>
+            </table>
+            </div>
+            </div>
+            
+            
+            
+        <div id="menizgoraj">
+            <table cellpadding="0" cellspacing="0">
+                <tr>
+                    <td width="5"></td><td width="160">
+                        <a href="http://www.hiking-trail.net/" title="Hiking"><img width="20" height="12" border="0" src="/slike/eng.gif" alt="English"></a>&nbsp;<a href="http://hr.hribi.net/" title="Planinarenje"><img width="20" height="12" border="0" src="/slike/hrv.gif" alt="Hrvatski" title="Hrvatski"></a>
+                    </td>
+
+
+<td class="pov1b"></td><td class="pov2b"><a class="pov2" href="/gorovja"><b>Seznam gora</b></a></td><td class="pov3b"></td>
+<td class="pov1"></td><td class="pov2"><a class="pov2" href="/goreiskanje.asp"><b>Iskanje izletov</b></a></td><td class="pov3"></td>
+                </tr>
+            </table>
+        <div>
+        <div id="vsebnik">
+            <div id="meni">
+                <div id="meni1">
+
+                 <table width="100%">
+                    <tr><td class="menivrstica" height="16"></td></tr>
+                    <tr><td class="menivrstica"><a class="meni" href="/" title="Novice"><h2>Novice</h2></a></td></tr>
+                    <!--<tr><td class="menivrstica"><a class="meni" target="_blank" href="http://trgovina.hribi.net" title="Trgovina z gorniško opremo"><h2>Trgovina</h2></a></td></tr>-->
+                    <tr><td class="menivrstica"><a class="meni" href="/trenutnerazmere.asp?slo=1" title="Forum - razmere v gorah"><h2>Trenutne razmere</h2></a></td></tr>
+                    <tr><td class="menivrstica"><a class="meni" href="/gorovja" title="seznam gora z opisi in slikami"><h2>Seznam gora</h2></a></td></tr>
+                    <tr><td class="menivrstica"><a class="meni" href="/goreiskanje.asp" title="Iskanje izletov"><h2>Iskanje izletov</h2></a></td></tr>
+                    <tr><td class="menivrstica"><a class="meni" href="/panorama.asp" title="360 stopinjske panorame v gorah"><h2>Panorama</h2></a></td></tr>
+                    <tr><td class="menivrstica"><a class="meni" href="/video/" title="video"><h2>Video</h2></a></td></tr>
+                    <tr><td class="menivrstica"><a class="meni" href="/mali_oglasi" title="kupim, prodam, najdeno, izgubljeno"><h2>Mali oglasi</h2></a></td></tr>
+                    <tr><td class="menivrstica"><a class="meni" href="/skupaj_v_hribe" title="Skupaj v hribe"><h2>Skupaj v hribe</h2></a></td></tr>
+                    <tr><td class="menivrstica"><a class="meni" href="/vpisna_knjiga_vrhov" title="Vpisna knjiga"><h2>Vpisna knjiga</h2></a></td></tr>
+                    <tr><td class="menivrstica"><a class="meni" href="/prireditve.asp" title="Prireditve"><h2>Prireditve</h2></a></td></tr>
+                    <tr><td class="menivrstica"><a class="meni" href="/zivali.asp" title="Slike in opisi živali"><h2>Alpske živali</h2></a></td></tr>
+                    <tr><td class="menivrstica"><a class="meni" href="/rastline.asp" title="Slike in opisi cvetja"><h2>Cvetje</h2></a></td></tr>
+                    <tr><td class="menivrstica"><a class="meni" href="/kviz.asp" title="Kvizi o gorah"><h2>Kviz</h2></a></td></tr>
+                    <tr><td class="menivrstica"><a class="meni" href="/zemljevid.asp" title="Zemljevid"><h2>Zemljevid</h2></a></td></tr>
+                    <tr><td class="menivrstica"><a class="meni" href="/vreme.asp" title="Vreme"><h2>Vreme</h2></a></td></tr>
+                    <tr><td class="menivrstica"><a class="meni" href="/gps.asp" title="GPS sledi"><h2>GPS sledi</h2></a></td></tr>
+                    <tr><td class="menivrstica"><a class="meni" href="/spletne_kamere_v_gorah" title="Spletne kamere - slike v živo"><h2>Spletne kamere</h2></a></td></tr>
+                    <tr><td class="menivrstica"><a class="meni" href="/najslike.asp" title="Slike"><h2>Slike</h2></a></td></tr>
+
+
+                  
+                	<table cellpadding="0" cellspacing="0">
+	                
+                    <span>
+                    <form name="Anketa" method="post" action="/anketa.asp">
+                    <span>
+                	<input type="hidden" name="anketaid" value="581">
+                	<tr><td colspan="2" height="5"></td></tr>
+
+                	<tr bgcolor="#46AF8E"><td colspan="2"><p class="anketanaslov">Anketa</p></td></tr>
+                	<tr><td colspan="2" height="2"></td></tr>
+                	<tr><td colspan="2"><p class="anketabesedilo2">Kolikokrat ste bili na Triglavu?</p></td></tr>
+                	
+                	<tr><td colspan="2" height="2"></td></tr>
+                	<tr><td><input value="odgovor1" type="radio" style="height:15px; margin:0px 0px 0px 2px; padding:0px;" name="anketa"></td><td width="100%"><p class="anketaodgovor2">Še nisem bil-a</p></td></tr>
+                	
+                	<tr><td colspan="2" height="2"></td></tr>
+                	<tr><td><input value="odgovor2" type="radio" style="height:15px; margin:0px 0px 0px 2px; padding:0px;" name="anketa"></td><td width="100%"><p class="anketaodgovor2">1 krat</p></td></tr>
+                	
+                	<tr><td colspan="2" height="2"></td></tr>
+                	<tr><td><input value="odgovor3" type="radio" style="height:15px; margin:0px 0px 0px 2px; padding:0px;" name="anketa"></td><td><p class="anketaodgovor2">2 do 5 krat</p></td></tr>
+                	
+                	<tr><td colspan="2" height="2"></td></tr>
+                	<tr><td><input value="odgovor4" type="radio" style="height:15px; margin:0px 0px 0px 2px; padding:0px;" name="anketa"></td><td><p class="anketaodgovor2">6 do 10 krat</p></td></tr>
+                	
+                	<tr><td colspan="2" height="2"></td></tr>
+                	<tr><td><input value="odgovor5" type="radio" style="height:15px; margin:0px 0px 0px 2px; padding:0px;" name="anketa"></td><td><p class="anketaodgovor2">11 do 49 krat</p></td></tr>
+                	
+                	<tr><td colspan="2" height="2"></td></tr>
+                	<tr><td><input value="odgovor6" type="radio" style="height:15px; margin:0px 0px 0px 2px; padding:0px;" name="anketa"></td><td><p class="anketaodgovor2">Ve&#269; kot 50 krat</p></td></tr>
+                	
+
+                	<tr><td colspan="2" height="4"></td></tr>
+                	<tr><td colspan="2"><input class="glasuj" size="2" type="submit" value="Glasuj"></td></tr>
+                    <tr><td colspan="2" height="0"></td></tr>
+
+
+
+
+                    </span>
+                	</form>
+                    </span>
+
+
+
+                    
+                    </table>
+                 
+                 </table>
+
+                </div>
+ 
+<div id="meni2">
+               
+
+<div style="position:relative;">
+
+</div>
+
+
+
+
+
+
+
+</div>
+
+            </div>
+            <div id="desnistolpec">
+
+
+
+
+
+</table>
+</td></tr>
+
+</table>
+</td></tr>
+<tr height="3"><td></td></tr>
+<tr><td align="center">
+<span id="oglasb"></span>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+            <div id="drobtinice">
+            <a href="/gorovja" class="moder">gorovja</a>&nbsp;/&nbsp;<a class="moder" href="/gorovje/pohorje_in_ostala_severovzhodna_slovenija/4">Pohorje in ostala severovzhodna Slovenija</a>&nbsp;/&nbsp;Rogla
+            </div>
+
+            <div id="oglas"></div>
+            <div id="vsebina">
+
+
+<script type="text/javascript">
+function gorast(id)
+  {
+    var xmlHttpgst;
+  try
+    {
+    // Firefox, Opera 8.0+, Safari
+    xmlHttpgst=new XMLHttpRequest();
+    }
+  catch (e)
+    {
+    // Internet Explorer
+    try
+      {
+      xmlHttpgst=new ActiveXObject("Msxml2.XMLHTTP");
+      }
+    catch (e)
+      {
+      try
+        {
+        xmlHttpgst=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+      catch (e)
+        {
+        return false;
+        }
+      }
+    }
+    xmlHttpgst.onreadystatechange=function()
+      {
+      if(xmlHttpgst.readyState==4)
+        {
+        }
+      }
+        xmlHttpgst.open("GET", "/ajaxgo"+"rastetje.asp?id="+id, true);
+        xmlHttpgst.send(null);
+  }
+gorast(512);
+</script>
+
+
+<table cellspacing="0" width="100%">
+<tr bgcolor="#4FC5A0">
+<td class="naslov1"><b>&nbsp;&nbsp;<h1>Rogla</h1></b></td>
+
+<td class="naslov1"><img src="/slike/vrh.gif" alt="vrh" title="vrh"></td>
+
+<td class="naslov1">&nbsp;</td>
+
+<td class="naslov1">&nbsp;</td>
+
+<td class="naslov1">&nbsp;</td>
+
+<td class="naslov1">&nbsp;</td>
+
+<td class="naslov1">&nbsp;</td>
+
+<td class="naslov1">&nbsp;</td>
+
+<td class="naslov1">&nbsp;</td>
+
+
+</tr>
+</table><table valign="top" cellspacing="0" width="100%">
+
+
+
+
+<tr bgcolor="#dddddd"><td colspan="2" align="left" valign="top" class="levospodaj">
+<table valign="top"><tr><td valign="top">
+<table align="left" valign="top" width="300">
+<tr><td><b>Država:</b> <a class=moder href=/gore/slovenija/1>Slovenija</a></td></tr>
+<tr><td><b>Gorovje:</b> <a class="moder" href="/gorovje/pohorje_in_ostala_severovzhodna_slovenija/4">Pohorje in ostala severovzhodna Slovenija</a></td></tr>
+<tr><td><b>Višina:</b> 1517&nbsp;m</td></tr>
+
+
+<script>
+    var kfi=1;
+    function koordinateFormat()
+    {
+        if(kfi==1)
+        {
+            document.getElementById("kf0").innerHTML="<a class=\"moder\" href=\"/zemljevid.asp?goraid=512\">46°&nbsp;27,3858'N&nbsp;/&nbsp;15°&nbsp;20,748'E</a>";
+            kfi=2;
+        }
+        else if(kfi==2)
+        {
+            document.getElementById("kf0").innerHTML="<a class=\"moder\" href=\"/zemljevid.asp?goraid=512\">46°&nbsp;27'&nbsp;23,15''N&nbsp;/&nbsp;15°&nbsp;20'&nbsp;44,88''E</a>";
+            kfi=3;
+        }
+        else if(kfi==3)
+        {
+            document.getElementById("kf0").innerHTML="<a class=\"moder\" href=\"/zemljevid.asp?goraid=512\">46,45643°N&nbsp;/&nbsp;15,3458°E</a>";
+            kfi=1;
+        }
+    }
+</script>
+<tr><td><table cellpadding="0" cellspacing="0"><tr><td><b>Širina/Dolžina:</b>&nbsp;<span id="kf0"><a class="moder" href="/zemljevid.asp?goraid=512">46,45643°N&nbsp;/&nbsp;15,3458°E</a></span>&nbsp;</td><td width="5"></td><td><span title="Spremeni format koordinat" style="cursor:pointer;" onclick="koordinateFormat();"><img src="/slike/refresh.png" /></span></td></tr></table></td></tr>
+<tr><td><b>Vrsta:</b> vrh</td></tr>
+
+
+<tr><td><b>Vremenska napoved:</b></td></tr>
+<tr><td>
+<table cellpadding="0" cellspacing="0">
+<tr>
+
+
+<td>
+<table cellpadding="0" cellspacing="0">
+<tr><td align="center">So</td></tr>
+<tr><td><a title="Vremenska napoved za Rogla - Sobota" href="/vreme_gora/rogla/4/512"><img border="0" width="50" src="http://hribi.net/slike/vreme/2_3_2_0_1_0_0.png" /></a></td></tr>
+</table>
+</td>
+
+<td>
+<table cellpadding="0" cellspacing="0">
+<tr><td align="center">Ne</td></tr>
+<tr><td><a title="Vremenska napoved za Rogla - Nedelja" href="/vreme_gora/rogla/4/512#Ne"><img border="0" width="50" src="http://hribi.net/slike/vreme/1_2_2_0_1_0_0.png" /></a></td></tr>
+</table>
+</td>
+
+<td>
+<table cellpadding="0" cellspacing="0">
+<tr><td align="center">Po</td></tr>
+<tr><td><a title="Vremenska napoved za Rogla - Ponedeljek" href="/vreme_gora/rogla/4/512#Po"><img border="0" width="50" src="http://hribi.net/slike/vreme/1_2_1_0_1_0_0.png" /></a></td></tr>
+</table>
+</td>
+
+<td>
+<table cellpadding="0" cellspacing="0">
+<tr><td align="center">To</td></tr>
+<tr><td><a title="Vremenska napoved za Rogla - Torek" href="/vreme_gora/rogla/4/512#To"><img border="0" width="50" src="http://hribi.net/slike/vreme/1_2_1_0_1_0_0.png" /></a></td></tr>
+</table>
+</td>
+
+<td>
+<table cellpadding="0" cellspacing="0">
+<tr><td align="center">Sr</td></tr>
+<tr><td><a title="Vremenska napoved za Rogla - Sreda" href="/vreme_gora/rogla/4/512#Sr"><img border="0" width="50" src="http://hribi.net/slike/vreme/2_3_2_0_1_0_0.png" /></a></td></tr>
+</table>
+</td>
+
+
+
+
+</tr></table>
+</td></tr>
+
+
+
+
+
+
+</table>
+<td align="left" valign="top">
+<table align="left" valign="top" width="200">
+<tr><td><b>Ogledov:</b> 500699</td></tr>
+
+<tr><td><b>Priljubljenost:</b> 91% (233. mesto)</td></tr>
+
+<tr><td><b>Število poti:</b> <a class="moder" href="#poti">5</a></td></tr>
+<tr><td><b>Število GPS sledi:</b> <a class="moder" href="/gps.asp">0</a></td></tr>
+
+
+</table>
+</td></tr></table>
+</td>
+
+</td></tr>
+
+
+<tr><td colspan="2"><b>Opis gore:</b></td></tr>
+<tr><td colspan="2"><p align="justify">Rogla je vrh sredi istoimenskega smučišča. Vrh je gozdnat z majhno jaso na kateri stoji razgledni stolp. Stolp je visok 30m in nam nudi lep razgled na bližnje gozdove in ob lepem vremenu celo na Triglav. Če Rogli dodamo 30m višine je to tudi najvišja točka na Pohorju, kjer lahko stoji človeška noga.</p></td></tr>
+
+<script type="text/javascript">
+function radiusf(id,i)
+  {
+    var xmlHttp;
+  try
+    {
+    // Firefox, Opera 8.0+, Safari
+    xmlHttp=new XMLHttpRequest();
+    }
+  catch (e)
+    {
+    // Internet Explorer
+    try
+      {
+      xmlHttp=new ActiveXObject("Msxml2.XMLHTTP");
+      }
+    catch (e)
+      {
+      try
+        {
+        xmlHttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+      catch (e)
+        {
+        return false;
+        }
+      }
+    }
+    xmlHttp.onreadystatechange=function()
+      {
+      if(xmlHttp.readyState==4)
+        {
+            if(i==1)
+                document.getElementById("radiusseznam1").innerHTML=xmlHttp.responseText;
+            else if(i==2)
+                document.getElementById("radiusseznam2").innerHTML=xmlHttp.responseText;
+            else if(i==3)
+                document.getElementById("radiusseznam3").innerHTML=xmlHttp.responseText;
+
+        }
+      }
+    if(i==1)  
+        xmlHttp.open("GET", "/ajaxradius2.asp?id=512&radius=" + id, true);
+    else if(i==2)
+        xmlHttp.open("GET", "/ajaxradiuskamere.asp?id=512&radius=" + id, true);
+    else if(i==3)
+        xmlHttp.open("GET", "/ajaxradiuspanorama2.asp?id=512&radius=" + id, true);
+    xmlHttp.send(null);
+  }
+
+</script>
+
+
+
+
+<tr><td colspan="2">
+<span id="radiusseznam1">
+<table>
+<tr><td colspan="2"><b>Gore v okolici</b>&nbsp;
+<select id="select1" name="select1" onchange="radiusf(this.value,1);">
+<option value="2">2</option>
+<option value="0,5">0,5</option>
+<option value="1">1</option>
+<option value="1,5">1,5</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="8">8</option>
+<option value="10">10</option>
+<option value="15">15</option>
+<option value="20">20</option>
+<option value="30">30</option>
+</select> <b>km:</b><br>
+<a class=moder href='/gora/koca_na_pesku/4/513'>Koča na Pesku (1386m)</a>
+</td></tr>
+</table></span></td></tr>
+
+
+<tr><td colspan="2">
+<span id="radiusseznam2">
+<table>
+<tr><td colspan="2"><b>Spletne kamere v okolici</b>&nbsp;
+<select id="select2" name="select1" onchange="radiusf(this.value,2);">
+<option value="15">15</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="5">5</option>
+<option value="7">7</option>
+<option value="10">10</option>
+<option value="15">15</option>
+<option value="20">20</option>
+<option value="25">25</option>
+<option value="30">30</option>
+<option value="35">35</option>
+<option value="40">40</option>
+<option value="50">50</option>
+<option value="60">60</option>
+</select> <b>km:</b><br>
+<a class=moder href='/spletna_kamera/grmovskov_dom_pod_veliko_kopo/2195'>Grmovškov dom pod Veliko Kopo</a>, <a class=moder href='/spletna_kamera/kope/35'>Kope</a>, <a class=moder href='/spletna_kamera/mariborsko_pohorje/14'>Mariborsko Pohorje</a>, <a class=moder href='/spletna_kamera/mislinja/188'>Mislinja</a>, <a class=moder href='/spletna_kamera/ribnica_na_pohorju/495'>Ribnica na Pohorju</a>, <a class=moder href='/spletna_kamera/ribnisko_pohorje/61'>Ribniško Pohorje</a>, <a class=moder href='/spletna_kamera/rogla/165'>Rogla</a>, <a class=moder href='/spletna_kamera/rogla_hotel_natura/2179'>Rogla (Hotel Natura)</a>, <a class=moder href='/spletna_kamera/rogla_masin_zaga/1860'>Rogla (Mašin Žaga)</a>, <a class=moder href='/spletna_kamera/sveti_trije_kralji_pohorje/2972'>Sveti Trije Kralji (Pohorje)</a>, <a class=moder href='/spletna_kamera/terme_zrece/164'>Terme Zreče</a>, <a class=moder href='/spletna_kamera/vurmat/3062'>Vurmat</a>
+</td></tr>
+</table></span></td></tr>
+
+
+<tr height="4"><td colspan="2"></td></tr>
+<tr><td colspan="2"><b>Dodaj v:</b></td></tr>
+<tr><td colspan="2">
+<a class="dodajv" title="Dodaj v Facebook" target="_blank" href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fwww.hribi.net%2Fgora%2Frogla%2F4%2F512&t=Rogla"><img border="0" src="/slike/facebook_16.png" /></a>&nbsp;<a title="Dodaj v Facebook" target="_blank" href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fwww.hribi.net%2Fgora%2Frogla%2F4%2F512&t=Rogla">facebook</a>
+ &nbsp; <a class="dodajv" title="Dodaj v Twitter" target="_blank" href="http://twitter.com/home/?status=Rogla+http%3A%2F%2Fwww.hribi.net%2Fgora%2Frogla%2F4%2F512"><img border="0" src="/slike/twitter_16.png" /></a>&nbsp;<a title="Dodaj v Twitter" target="_blank" href="http://twitter.com/home/?status=Rogla+http%3A%2F%2Fwww.hribi.net%2Fgora%2Frogla%2F4%2F512">Twitter</a>
+ &nbsp; <a class="dodajv" title="Dodaj v myspace" target="_blank" href="http://www.myspace.com/index.cfm?fuseaction=postto&t=Rogla&c=Natančen opis gore Rogla in vseh pristopov na Rogla. Rogla je vrh sredi istoimenskega smučišča. Vrh je gozdnat z majhno jaso na kater&u=http%3A%2F%2Fwww.hribi.net%2Fgora%2Frogla%2F4%2F512"><img border="0" src="/slike/myspace_16.png" /></a>&nbsp;<a title="Dodaj v myspace" target="_blank" href="http://www.myspace.com/index.cfm?fuseaction=postto&t=Rogla&c=Natančen opis gore Rogla in vseh pristopov na Rogla. Rogla je vrh sredi istoimenskega smučišča. Vrh &u=http%3A%2F%2Fwww.hribi.net%2Fgora%2Frogla%2F4%2F512">myspace</a>
+ &nbsp; <a class="dodajv" title="Dodaj v Digg" target="_blank" href="http://digg.com/submit?url=http%3A%2F%2Fwww.hribi.net%2Fgora%2Frogla%2F4%2F512&title=Rogla"><img border="0" src="/slike/digg_alt_16.png" /></a>&nbsp;<a title="Dodaj v Digg" target="_blank" href="http://digg.com/submit?url=http%3A%2F%2Fwww.hribi.net%2Fgora%2Frogla%2F4%2F512&title=Rogla">Digg</a>
+ &nbsp; <a class="dodajv" title="Dodaj v delicious" target="_blank" href="http://delicious.com/save?v=5&noui&jump=close&url=http%3A%2F%2Fwww.hribi.net%2Fgora%2Frogla%2F4%2F512&title=Rogla"><img border="0" src="/slike/delicious_16.png" /></a>&nbsp;<a title="Dodaj v delicious" target="_blank" href="http://delicious.com/save?v=5&noui&jump=close&url=http%3A%2F%2Fwww.hribi.net%2Fgora%2Frogla%2F4%2F512&title=Rogla">delicious</a>
+ &nbsp; <a class="dodajv" title="Dodaj v Reddit" target="_blank" href="http://reddit.com/submit?url=http%3A%2F%2Fwww.hribi.net%2Fgora%2Frogla%2F4%2F512&title=Rogla"><img border="0" src="/slike/reddit_16.png" /></a>&nbsp;<a title="Dodaj v Reddit" target="_blank" href="http://reddit.com/submit?url=http%3A%2F%2Fwww.hribi.net%2Fgora%2Frogla%2F4%2F512&title=Rogla">reddit</a>
+
+</td></tr>
+
+
+
+<tr height="4"><td colspan="2"></td></tr>
+<tr><td colspan="2"><b>Panorama:</b><br /><a href="/panorama.asp?goraid=512"><img src="http://hribi.net/panorama/th.rogla.jpg" border="1" bordercolor="#4567AE" /></a></td></tr>
+
+<!-- ************ slike ************ -->
+
+<tr height="4"><td colspan="2"></td></tr>
+<tr><td colspan="2"><b>Slike:</b></td></td></tr>
+
+<tr><td colspan="2">
+
+<a target="/slika.asp?i=http://hribi.net/slike1/stolp69160.jpg" href="/slika.asp?gora=1429"><img width="160" height="120" alt="Rogla" style="border: 1px solid #99ACD6" src="http://hribi.net/slike1/stolp69160.th.jpg"></a>
+
+<a target="/slika.asp?i=http://hribi.net/slike1/Pohorje12 334628992.jpg" href="/slika.asp?gora=9857"><img width="160" height="120" alt="Rogla" style="border: 1px solid #99ACD6" src="http://hribi.net/slike1/Pohorje12 334628992.th.jpg"></a>
+
+<a target="/slika.asp?i=http://hribi.net/slike1/Pohorje12 337628992.jpg" href="/slika.asp?gora=9858"><img width="160" height="120" alt="Rogla" style="border: 1px solid #99ACD6" src="http://hribi.net/slike1/Pohorje12 337628992.th.jpg"></a>
+
+
+</td></tr>
+
+<!-- ************ video ************ -->
+
+<tr><td colspan="2">
+
+
+</td></tr>
+
+</table>
+<table cellspacing="0" width="100%">
+<tr bgcolor="#4FC5A0"><td class="naslov1"><a name="poti"></a><b><h1>Poti:</h1></b></td><td class="naslov1"><b>Čas</b></td><td class="naslov1" colspan="2"><b>Zahtevnost</b></td>
+
+
+<form method="post" action="/potnovo.asp?id=512">
+<td class="naslov1"></td>
+</form>
+
+
+</tr>
+
+		<tr bgcolor="#f5f5f5"><td><a href='/izlet/koca_na_pesku_rogla_pes_pot/4/512/872'>Koča na Pesku - Rogla&nbsp;(peš pot)</a></td><td><a href='/izlet/koca_na_pesku_rogla_pes_pot/4/512/872'>30&nbsp;min</a></td><td><a href='/izlet/koca_na_pesku_rogla_pes_pot/4/512/872'>lahka označena pot</a></td><td><img alt="opis vsebuje slike" title="opis vsebuje slike" height="22" src="/slike/slika.gif"></td></tr>
+ 		
+			<tr bgcolor="#eeeeee"><td><a href='/izlet/hotel_planja_rogla_/4/512/870'>Hotel Planja - Rogla&nbsp;</a></td><td><a href='/izlet/hotel_planja_rogla_/4/512/870'>15&nbsp;min</a></td><td><a href='/izlet/hotel_planja_rogla_/4/512/870'>lahka označena pot</a></td><td><img alt="opis vsebuje slike" title="opis vsebuje slike" height="22" src="/slike/slika.gif"></td></tr>
+			
+			<tr bgcolor="#f5f5f5"><td><a href='/izlet/vitanje_rogla_/4/512/4986'>Vitanje - Rogla&nbsp;</a></td><td><a href='/izlet/vitanje_rogla_/4/512/4986'>4&nbsp;h</a></td><td><a href='/izlet/vitanje_rogla_/4/512/4986'>lahka označena pot</a></td><td><img alt="opis vsebuje slike" title="opis vsebuje slike" height="22" src="/slike/slika.gif"></td></tr>
+			
+		<tr bgcolor="#eeeeee"><td><a href='/izlet/mislinja_rogla_cez_tolsti_vrh/4/512/6228'>Mislinja - Rogla&nbsp;(čez Tolsti Vrh)</a></td><td><a href='/izlet/mislinja_rogla_cez_tolsti_vrh/4/512/6228'>4&nbsp;h&nbsp;15&nbsp;min</a></td><td><a href='/izlet/mislinja_rogla_cez_tolsti_vrh/4/512/6228'>lahka označena pot</a></td><td><img alt="opis vsebuje slike" title="opis vsebuje slike" height="22" src="/slike/slika.gif"></td></tr>
+ 		
+		<tr bgcolor="#f5f5f5"><td><a href='/izlet/mislinjski_graben_pestotnik_rogla_cez_ostruscico/4/512/6227'>Mislinjski graben (Pestotnik) - Rogla&nbsp;(čez Ostruščico)</a></td><td><a href='/izlet/mislinjski_graben_pestotnik_rogla_cez_ostruscico/4/512/6227'>3&nbsp;h</a></td><td><a href='/izlet/mislinjski_graben_pestotnik_rogla_cez_ostruscico/4/512/6227'>lahka neoznačena steza</a></td><td><img alt="opis vsebuje slike" title="opis vsebuje slike" height="22" src="/slike/slika.gif"></td></tr>
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</table>
+
+            </div>
+
+<div id="noga">Copyright&nbsp;©&nbsp;2006-2018&nbsp;Hribi.net, <a class="noga" href="/pogoji.asp">Pogoji&nbsp;uporabe</a>, <a class="noga" target="_blank" href="http://oglasi.hribi.net">Oglaševanje</a>, <a class="noga" href="/piskotki.asp">Piškotki</a></div>
+
+
+</div>
+</div>
+</div>
+
+
+
+
+<div id="oglasd" class="oglasd">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- hribi-720-90 -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-0186014428427864"
+     data-ad-slot="6313714807"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+
+
+
+
+<script type="text/javascript">
+var ddd = new Date();
+var nnn = ddd.getUTCSeconds(); 
+
+
+</script>
+
+
+<div id="oglasa" class="oglasizgoraj">
+
+ <!-- ADpartner -->
+<script type="text/javascript">
+<!--
+  adp_zone_id = 'MTk2LDIsMiwwKzEsMTAy';
+  adp_zone_width = 468;
+  adp_zone_height = 60;
+  adp_color_border = 'eeeeee';
+  adp_color_bg = 'eeeeee';
+  adp_color_title = '4567ae';
+  adp_color_link = '46af8e';
+  adp_color_text = '444444';
+// -->
+</script>
+<script type="text/javascript" src="//kos.interseek.si/_slave_01/js/serve.js"></script>
+<!-- /ADpartner -->
+</div>
+
+<!-- iPROM Central - www.centraliprom.com -->
+<script type="text/javascript">
+_iprom_s='obds453j';
+_iprom_d='floating';
+</script>
+<script type="text/javascript" src="//central.iprom.net/adserver/adserver.js"></script>
+<!-- iPROM Central - www.centraliprom.com -->
+
+
+</body>
+</html>
+
