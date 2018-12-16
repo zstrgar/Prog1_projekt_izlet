@@ -101,18 +101,18 @@ def podatki_izletov(izleti):
 ### Zapis podatkov v CSV
 
 
-def zapisi_podatke_v_csv(seznam_podatkov, ime_mape, ime_csv):
-    '''Zapiše dani seznam slovarjev podatkov v 
-    ime_mape/ime_csv kot csv datoteko.'''
-    imena_stolpcev = seznam_podatkov[0].keys()
-    vrstice = seznam_podatkov
-    os.makedirs(ime_mape, exist_ok=True)
-    pot = os.path.join(ime_mape, ime_csv)
-    with open(pot, 'w', encoding= 'utf-8') as csv_dat:
-        writer = csv.DictWriter(csv_dat, fieldnames=imena_stolpcev)
-        writer.writeheader()
-        for vrstica in vrstice:
-            writer.writerow(vrstica)
-    return None
+# def zapisi_podatke_v_csv(seznam_podatkov, ime_mape, ime_csv):
+#    '''Zapiše dani seznam slovarjev podatkov v 
+#    ime_mape/ime_csv kot csv datoteko.'''
+#    imena_stolpcev = seznam_podatkov[0].keys()
+#    vrstice = seznam_podatkov
+#    os.makedirs(ime_mape, exist_ok=True)
+#    pot = os.path.join(ime_mape, ime_csv)
+#    with open(pot, 'w', encoding= 'utf-8') as csv_dat:
+#        writer = csv.DictWriter(csv_dat, fieldnames=imena_stolpcev)
+#        writer.writeheader()
+#        for vrstica in vrstice:
+#            writer.writerow(vrstica)
+#    return None
 
 #--> zapisi_podatke_v_csv(podatki_izletov(izleti), ime_mape, ime_csv)

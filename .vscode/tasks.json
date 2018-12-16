@@ -6,7 +6,7 @@
         {
             "label": "run file in python",
             "type": "shell",
-            "command": "ipython",
+            "command": "python",
             "args": [
                 "-i",
                 {
