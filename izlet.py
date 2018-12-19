@@ -32,10 +32,15 @@ vzorec_izleta = re.compile(
     r'<tr><td><b>Priljubljenost:</b> (?P<priljubljenost>\d+?)%.*?'
     r'\((?P<mesto_priljubljenosti>\d+?)\. mesto\)</td></tr>.*?'
     r'href="#poti">(?P<stevilo_poti>\d+?)</a></td></tr>.*?'
-    r'<tr><td colspan="2"><p align="justify">(?P<opis>.*?)</p></td></tr>.*?',
+    r'<tr><td colspan="2"><p align="justify">(?P<opis>.*?)</p></td></tr>.*?'
+    r"href='/izlet/.+?/\d+?/\d+?/\d+?'>(?P<cas>\d{1,2})&nbsp;.*?"
+    r"</a></td><td><a href='/izlet/.+?/\d+?/\d+?/\d+?'>(?P<zahtevnost>.*?)</a></td><td>.*?</td></tr>",
     flags=re.DOTALL
 )
 
+#TODO: vzorec za vrsto hriba, vzorec za gorovje... oziroma tisto kar smo naredil na predavanjih za več vrst nečesa... (žanr...)
+
+#TODO: Janova ideja, da gledam te vzorce iz že potegnjenih strani, da ne bo treba večkrat potegnit... ker je zamudno.
 
 ### Pridobitev podatkov
 
@@ -78,7 +83,7 @@ def pretvori_v_niz(ime_mape_spl, ime_datoteke):
 
 
 def seznam_izletov():
-    '''Vrne seznam naborov (url izleta, id izleta, ime izleta) iz strani.'''
+    '''Vrne seznam naborov (url izleta, id izleta, ime izleta) iz osnovne strani.'''
     sez_izleti = re.findall(vzorec_izletov, pretvori_v_niz(ime_mape_spl, ime_datoteke))
     return sez_izleti
  
@@ -87,6 +92,7 @@ def seznam_izletov():
 
 def podatki_izletov(izleti):
     podatki_izletov = []
+    #for i in range (205,225):
     for i in range(len(izleti)):
         url_izleta = 'http://www.hribi.net/' + izleti[i][0]
         stran_izleta = 'stran_izlet_{}.html'.format(izleti[i][1])
@@ -101,18 +107,20 @@ def podatki_izletov(izleti):
 ### Zapis podatkov v CSV
 
 
-# def zapisi_podatke_v_csv(seznam_podatkov, ime_mape, ime_csv):
-#    '''Zapiše dani seznam slovarjev podatkov v 
-#    ime_mape/ime_csv kot csv datoteko.'''
-#    imena_stolpcev = seznam_podatkov[0].keys()
-#    vrstice = seznam_podatkov
-#    os.makedirs(ime_mape, exist_ok=True)
-#    pot = os.path.join(ime_mape, ime_csv)
-#    with open(pot, 'w', encoding= 'utf-8') as csv_dat:
-#        writer = csv.DictWriter(csv_dat, fieldnames=imena_stolpcev)
-#        writer.writeheader()
-#        for vrstica in vrstice:
-#            writer.writerow(vrstica)
-#    return None
+def zapisi_podatke_v_csv(seznam_podatkov, ime_mape, ime_csv):
+    '''Zapiše dani seznam slovarjev podatkov v 
+    ime_mape/ime_csv kot csv datoteko.'''
+    imena_stolpcev = seznam_podatkov[0].keys()
+    vrstice = seznam_podatkov
+    os.makedirs(ime_mape, exist_ok=True)
+    pot = os.path.join(ime_mape, ime_csv)
+    with open(pot, 'w', encoding= 'utf-8') as csv_dat:
+        writer = csv.DictWriter(csv_dat, fieldnames=imena_stolpcev)
+        writer.writeheader()
+        for vrstica in vrstice:
+            writer.writerow(vrstica)
+    return None
 
 #--> zapisi_podatke_v_csv(podatki_izletov(izleti), ime_mape, ime_csv)
+
+#TODO: zapiši vse v eno kodo, s pomožnimi funkcijami vred zato, da samo enkrat poženeš in je to to
