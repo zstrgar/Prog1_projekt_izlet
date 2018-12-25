@@ -21,9 +21,9 @@ Podatki so zajeti s pomočjo funkcij, ki so v skripti [izlet.py].
 
 Delovne hipoteze:
 - [x] Katero gorovje ima največ izletniških točk?
-- [ ] Katero gorovje je najbolj priljubljeno?
-- [ ] Ali je povezava med nadmorsko višino in priljubljenostjo?
+- [x] Katero gorovje je najbolj priljubljeno?
+- [x] Ali je povezava med nadmorsko višino in priljubljenostjo?
 - [ ] Pregled možnih izbir za različne izlete - družinske, športne in ektremne.
-- [ ] Ali se težavnost in dolžina poti povezujeta s priljubljenostjo?
-- [ ]  Pričakujem, da bodo daljši izleti večinoma zastopani v Julijskih alpah, ali bo temu res tako? In če ne, kje so še take možnosti?
+- [x] Ali se dolžina poti povezuje s priljubljenostjo?
+- [x]  Pričakujem, da bodo daljši izleti večinoma zastopani v Julijskih alpah, ali bo temu res tako? In če ne, kje so še take možnosti?
 
