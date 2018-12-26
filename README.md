@@ -19,7 +19,7 @@ V CSV datoteki [podatki_izletov.csv] so zajeti naslednji podatki:
 Podatki so zajeti s pomočjo funkcij, ki so v skripti [izlet.py].
 
 
-Delovne hipoteze:
+## Delovne hipoteze:
 - [x] Katero gorovje ima največ izletniških točk?
 - [x] Katero gorovje je najbolj priljubljeno?
 - [x] Ali je povezava med nadmorsko višino in priljubljenostjo?
