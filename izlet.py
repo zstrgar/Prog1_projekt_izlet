@@ -38,9 +38,6 @@ vzorec_izleta = re.compile(
     flags=re.DOTALL
 )
 
-#TODO: vzorec za vrsto hriba, vzorec za gorovje... oziroma tisto kar smo naredil na predavanjih za več vrst nečesa... (žanr...)
-
-#TODO: Janova ideja, da gledam te vzorce iz že potegnjenih strani, da ne bo treba večkrat potegnit... ker je zamudno.
 
 ### Pridobitev podatkov
 
@@ -122,5 +119,3 @@ def zapisi_podatke_v_csv(seznam_podatkov, ime_mape, ime_csv):
     return None
 
 #--> zapisi_podatke_v_csv(podatki_izletov(izleti), ime_mape, ime_csv)
-
-#TODO: zapiši vse v eno kodo, s pomožnimi funkcijami vred zato, da samo enkrat poženeš in je to to
