@@ -3,7 +3,7 @@ Nedeljski izlet
 
 Analizirala bom 1704 možnosti za izlete v Sloveniji, ki sem jih našla na [spletni strani](http://www.hribi.net/goreiskanjerezultat.asp?drzavaid=1&gorovjeid=&goraime=&VisinaMIN=&VisinaMAX=&CasMIN=&CasMAX=&izhodisce=&izhodisceMIN=&izhodisceMAX=&VisinskaRazlikaMIN=&VisinskaRazlikaMAX=&zahtevnostid=&zahtevnostSmucanjeid=&IzhodisceMinOddaljenost=&IzhodisceMAXOddaljenost=&GoraMinOddaljenost=&GoraMaxOddaljenost=&mojaSirina=0&mojaDolzina=0) (zadnji ogled 19. 12. 2018).
 
-V CSV datoteki [podatki_izletov.csv] so zajeti naslednji podatki:
+V CSV datoteki `podatki_izletov.csv` so zajeti naslednji podatki:
 * ime izletniške točke (kraja ali gore),
 * id izleta,
 * v katerem gorovju se nahaja,
@@ -16,7 +16,7 @@ V CSV datoteki [podatki_izletov.csv] so zajeti naslednji podatki:
 * čas poti in
 * zahtevnost poti
 
-Podatki so zajeti s pomočjo funkcij, ki so v skripti [izlet.py].
+Podatki so zajeti s pomočjo funkcij, ki so v skripti `izlet.py`.
 
 
 ## Delovne hipoteze:
@@ -27,3 +27,4 @@ Podatki so zajeti s pomočjo funkcij, ki so v skripti [izlet.py].
 - Ali se dolžina poti povezuje s priljubljenostjo?
 - Pričakujem, da bodo daljši izleti večinoma zastopani v Julijskih alpah, ali bo temu res tako? In če ne, kje so še take možnosti?
 
+Analiza podatkov z odgovori na zgornja vprašanja se nahaja v datoteki `izleti.ipynb`.
